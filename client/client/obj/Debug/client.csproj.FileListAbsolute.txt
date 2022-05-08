@@ -1,0 +1,13 @@
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\bin\Debug\client.exe.config
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\bin\Debug\client.exe
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\bin\Debug\client.pdb
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.csprojAssemblyReference.cache
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.Properties.Resources.resources
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.csproj.GenerateResource.cache
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.csproj.CoreCompileInputs.cache
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.exe
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.pdb
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.Fsignin.resources
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.Felection.resources
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.FblockChain.resources
+C:\Users\משתמש\Desktop\תשפב\school project\client\client\obj\Debug\client.FInfo.resources

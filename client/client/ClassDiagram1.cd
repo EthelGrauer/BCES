@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="client.Block">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAgQAgAAAAAgAAAIALAAAAAIAAAAAAAAIAKAABAA=</HashCode>
+      <FileName>block.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.blockChain">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAIAAAIAAAAAAAAAAAAAAAAAAAJAABAAAA=</HashCode>
+      <FileName>blockChain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.Block_Data">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAEAAAAAAAAAAAAAAAAABAAAAAAEAgAAAAAAAAAABgA=</HashCode>
+      <FileName>BlockData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.ClientConnect">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAEAABAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClientConnect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.comHelper">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAIAAAAAQAAAAAAAIAgAJAAAAAAAAAA=</HashCode>
+      <FileName>comHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.comInfo">
+    <Position X="2.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACAAAAAAAAgEDAAACAAAAAAAAABAACACBEAAAACAg=</HashCode>
+      <FileName>comInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.FblockChain">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIhAAACAAABQIAACAQAQCAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>FblockChain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.Felection">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ADAAAAAAACAAAIAHAACAgAELAEg6gEBgQAAAcCAgAQA=</HashCode>
+      <FileName>Felection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.FInfo">
+    <Position X="5.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACAAAAAAAACAAgACAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>FInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.Fsignin">
+    <Position X="4" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAUABCAAADAAAAiAgAACAAAAIAAAAEAAAAIAAgQ=</HashCode>
+      <FileName>Fsignin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.NetworkFuncClient">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>NetworkFuncClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.NetworkFuncServer">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAQAAAAAAAYAIAAQAACAAAABAAAAAEBQ=</HashCode>
+      <FileName>NetworkFuncServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.Party_ins">
+    <Position X="2.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Parties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.Program">
+    <Position X="5.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.Serv_helper">
+    <Position X="5.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgCAACAAAAAQAAAQAAAAAEAAEAAAAABAA=</HashCode>
+      <FileName>ServComHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.User">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.Properties.Resources">
+    <Position X="7.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAQgAwAAAQAAAAAAAAAABIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="client.Properties.Settings">
+    <Position X="7.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="client.msgCodes">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACCAAAAAAAAAQCAAAAAAAAIAAAA=</HashCode>
+      <FileName>comInfo.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="client.Party">
+    <Position X="7.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAQAAAAAGAIAgEAAACABAAAAIAgAAAAIAAAA=</HashCode>
+      <FileName>Parties.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="client.ServComTypes">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAIIAAAAgAAAAAAAAAAIAAAARAAAAAAAAQAAKAA=</HashCode>
+      <FileName>ServComHelper.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

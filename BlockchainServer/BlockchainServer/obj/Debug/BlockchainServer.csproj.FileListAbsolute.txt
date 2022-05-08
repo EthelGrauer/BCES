@@ -1,0 +1,12 @@
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\bin\Debug\BlockchainServer.exe.config
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\bin\Debug\BlockchainServer.exe
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\bin\Debug\BlockchainServer.pdb
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\obj\Debug\BlockchainServer.csprojAssemblyReference.cache
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\obj\Debug\BlockchainServer.Form1.resources
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\obj\Debug\BlockchainServer.Properties.Resources.resources
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\obj\Debug\BlockchainServer.csproj.GenerateResource.cache
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\obj\Debug\BlockchainServer.csproj.CoreCompileInputs.cache
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\obj\Debug\BlockchainServer.exe
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\obj\Debug\BlockchainServer.pdb
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\bin\Debug\blockChainUsers.mdf
+C:\Users\משתמש\Desktop\תשפב\school project\BlockchainServer\BlockchainServer\bin\Debug\blockChainUsers_log.ldf
