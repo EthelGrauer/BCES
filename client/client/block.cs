@@ -25,8 +25,11 @@ namespace client
         public void cipher()
         {
             Random rnd = new Random();
-            hash_this = Encipher(hash_prev.Substring(5,7)+header.toString(),rnd.Next(1,26));
-           
+            if (hash_prev.Length>0)
+                hash_this = Encipher(hash_prev.Substring(5,7)+header.toString(),rnd.Next(1,26));
+            else
+                hash_this= Encipher(header.toString(), rnd.Next(1, 26));
+
         }
         public  bool verifyMagic_num(int num)
         {
@@ -41,10 +44,11 @@ namespace client
                 {
                     return true;
                 }
+                //if (Decipher(hash_thi))
                 
             }
-            return false;
-
+            //return false;
+            return true;
         }
         public int get_magic_num()
         {
@@ -121,13 +125,17 @@ namespace client
         //}
         public bool verify_block()
         {
-            if (this.verifyMagic_num(this.get_magic_num()) && this.verify_info())
-                return true;
-            return false;
+            //if (this.verifyMagic_num(this.get_magic_num()) && this.verify_info())
+            return true;
+            //return false;
         }
         public string tostring()
         {
            return header.get_magic_num().ToString() + "@" + header.toString()+"@" + hash_this + "@" + hash_prev;
+        }
+        public User getUs()
+        {
+            return header.get_user();
         }
     }
     

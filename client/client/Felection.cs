@@ -5,20 +5,28 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using client;
+using System.Net;
+using System.Net.Sockets;
+
 namespace client
 {
     public partial class Felection : Form
     {
         
-        blockChain blkchn;
+        //blockChain blkchn;
+        //NetworkFuncClient cli;
+        //NetworkFuncServer server;
         User user;
         public Felection(User user)
         {
             InitializeComponent();
             this.user = user;
+            //blkchn = b;
+            //cli = client;
+            //server = serv;
         }
         
         private void choice(object sender, EventArgs e)
@@ -33,12 +41,31 @@ namespace client
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                Block choice = new Block(blkchn.getLastHash(), user.id, user.name, user.vote.ToString());
-                MessageBox.Show("waiting for verification");
-                //send block
-                //if()
-                //check verification
-                //if()
+                Block choice;
+                if (Global.blkchn.isEmpty())
+                {
+                    choice = new Block("", user);
+                }
+                else 
+                {
+                   choice = new Block(Global.blkchn.getLastHash(), user);
+                }
+                if (Global.FuncClient ==null && Global.FuncServer ==null)
+                    Global.blkchn.addBlock(choice);
+                else
+                {
+                    MessageBox.Show("waiting for verification");
+                    Global.FuncClient.sendBlock(choice);
+                    do
+                    {
+                        Thread.Sleep(2000);
+                    } while ((Global.FuncServer.getFinished() == false));
+                    Global.FuncServer.setFinished(false);
+                    Global.blkchn.addBlock(choice);
+                }
+                
+                //server.getMsgFromCliChain();
+                
                 this.Close();
 
             }

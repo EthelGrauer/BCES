@@ -25,7 +25,7 @@ namespace BlockchainServer
         List<ClientConnect> allClients = new List<ClientConnect>();
         private static int connectId = 0; // משתנה ששומר את מספר הלקוחות שהתחברו ואת מספר הלקוח 
         //string NameOfUsers;
-
+        DBhelper dBhelper;
 
         private void GetIpAdDress() // את כתובת המחשב IpAddress פונקציה שתשמור במשתנה IpAdress את הכתובת
         {
@@ -37,6 +37,7 @@ namespace BlockchainServer
         public Form1()
         {
             InitializeComponent();
+            dBhelper = new DBhelper();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -98,10 +99,11 @@ namespace BlockchainServer
                             if (allClients.Count==2)
                             {
                                 
-                                ComHelper.sendMsg(allClients[0].clientSocket, ComHelper.constructMsg((int)ServComTypes.NOT_FIRST, null));
+                                ComHelper.sendMsg(allClients[0].clientSocket, ComHelper.constructMsg((int)ServComTypes.NOT_FIRST, ""));
                             }
-                            ComHelper.sendMsg(allClients[0].clientSocket, ComHelper.constructMsg((int)ServComTypes.SEND_TO_PORT, null));
-                            ComHelper.sendMsg(allClients[0].clientSocket, ComHelper.constructMsg((int)ServComTypes.SEND_TO_IP, null));
+                            
+                            ComHelper.sendMsg(allClients[allClients.Count-2].clientSocket, ComHelper.constructMsg((int)ServComTypes.SEND_TO_PORT, (c1.clientnum + portDis).ToString()));
+                            ComHelper.sendMsg(allClients[allClients.Count - 2].clientSocket, ComHelper.constructMsg((int)ServComTypes.SEND_TO_IP, ""));
                             //c1.clientSocket.Send(Encoding.ASCII.GetBytes("2" + (allClients[allClients.Count - 2].name)));
                             //c1.clientSocket.Send(Encoding.ASCII.GetBytes((allClients[0].name)));
                             //allClients[0].clientSocket.Send(Encoding.ASCII.GetBytes((c1.name)));
@@ -131,27 +133,46 @@ namespace BlockchainServer
             long realId = c1.clientnum; // The realId saves the real number of the client that sends the info
             Socket s = c1.clientSocket;
             int ret = 0; // This object will contain the number of characters that are passed in the message
-            Byte[] receive; // In this array I'll save the info from the client
-            receive = new Byte[2000]; // If the client is connected we reboot the array;
+            //Byte[] receive; // In this array I'll save the info from the client
+            //receive = new Byte[2000]; // If the client is connected we reboot the array;
             while (true) // מנהל המשחק: כרגע מקבלת ממל מי כול לקוח ומוסרת אותו לכול הלקוחות
             {
                 try
                 {
                     if (s.Connected)
                     {
-                        ret = s.Receive(receive, receive.Length, 0);//s.Receive is a command that gets the info from the client and put it in the array receive
-                        if (ret > 0) // If a message is rececived
+                       int type= ComHelper.recvmsgType(s);
+                        int len = ComHelper.recvmsglength(s);
+                        switch(type-48)
                         {
-                            foreach (ClientConnect c in allClients)
-                            {
-                                if (c.clientSocket.Connected)
-                                    c.clientSocket.Send(receive, receive.Length, SocketFlags.None);
-                            }
+                            case (int)ServComTypes.SIGN_IN:
+                                int id = ComHelper.recvIntTypeMsg(s, 9);
+                                string name = ComHelper.recvStringTypeMsg(s, len-9);
+                                if (dBhelper.does_exist(name,id) && !dBhelper.was_signed_in(name,id))
+                                {
+                                    dBhelper.change_signed_in(name,id);
+                                    ComHelper.sendMsg(s,ComHelper.constructMsg((int)ServComTypes.AUTH_SUC,""));
+                                }
+                                else
+                                {
+                                    ComHelper.sendMsg(s,ComHelper.constructMsg((int)ServComTypes.AUTH_FAIL, ""));
+                                }
+                                break;
                         }
-                        else
-                        {
-                            break;
-                        }
+
+                        //ret = s.Receive(receive, receive.Length, 0);//s.Receive is a command that gets the info from the client and put it in the array receive
+                        //if (ret > 0) // If a message is rececived
+                        //{
+                        //    foreach (ClientConnect c in allClients)
+                        //    {
+                        //        if (c.clientSocket.Connected)
+                        //            c.clientSocket.Send(receive, receive.Length, SocketFlags.None);
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    break;
+                        //}
                     }// If a message was received and its' characters length is 0 we get out of the loop
                 }
                 catch (Exception e) // If an error occured we want to stop the thread

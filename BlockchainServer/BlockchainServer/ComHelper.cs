@@ -79,5 +79,15 @@ namespace BlockchainServer
             return num.ToString("D" + decimalLength.ToString());
 
         }
+        public static string recvStringTypeMsg(Socket sock, int len)
+        {
+            byte[] msg = new byte[len];
+
+
+            int num = sock.Receive(msg, 0, len, SocketFlags.None);
+            //if (BitConverter.IsLittleEndian)
+            //    Array.Reverse(msgLength);
+            return Encoding.ASCII.GetString(msg);
+        }
     }
 }

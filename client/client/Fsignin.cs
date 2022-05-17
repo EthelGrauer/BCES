@@ -17,11 +17,15 @@ namespace client
     public partial class Fsignin : Form
     {
         private Serv_helper communicator;
-        private blockChain BlockChain;
+        //private blockChain BlockChain;
         public Fsignin()
         {
             InitializeComponent();
             communicator = null;
+            
+                Global.blkchn = new blockChain();
+            
+            
             connectToServer();
 
         }
@@ -50,15 +54,14 @@ namespace client
         private void button1_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show("Not found\nYou may try again");
-            //id
-            //int size = sock.Send(jsonfunctions.jsonSer(loginRequest));
+           
+            
             if (checkID(txtId.Text) == false)
             {
                 MessageBox.Show("invalid ID\nYou may try again");
                 return;
             }
-            else if (this.communicator.send_LoginToSrvr(txtId.Text, txtName.Text))
+            else if (!this.communicator.send_LoginToSrvr(txtId.Text, txtName.Text))
             {
                 MessageBox.Show("Not found\nYou may try again");
                 return;
@@ -71,17 +74,24 @@ namespace client
                 Felection election = new Felection(user);
                 this.Hide();
                 election.ShowDialog();
+                this.Show();
+                
+
+                //Felection election = new Felection(user);
+                //this.Hide();
+                //election.ShowDialog();
                 //this.Show();
             }
 
         }
+        
 
         private void btnBC_Click(object sender, EventArgs e)
         {
             if (!communicator.getFirstFlag())
             {
                 
-                FblockChain blockchain = new FblockChain(communicator.getComInfo(),BlockChain);
+                FblockChain blockchain = new FblockChain(communicator.GetComInfo());
                 this.Hide();
                 blockchain.ShowDialog();
                 this.Show();
@@ -127,6 +137,8 @@ namespace client
 
 
             //if (tcpThd.IsAlive) tcpThd.Abort();
+
+
 
         }
 

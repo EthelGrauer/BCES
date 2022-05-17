@@ -13,7 +13,8 @@ using System.Net;
 
 namespace client
 {
-    class NetworkFuncServer
+    
+    public class NetworkFuncServer
     {
        
          
@@ -23,6 +24,16 @@ namespace client
         List<ClientConnect> allClients = new List<ClientConnect>();
         private static int connectId = 0;
         comInfo com;
+        //NetworkFuncClient cli;
+        bool finished;
+        public bool getFinished()
+        {
+            return finished;
+        }
+        public void setFinished(bool f)
+        {
+             finished=f;
+        }
         public NetworkFuncServer(comInfo info)
         {
             com = info;
@@ -32,6 +43,7 @@ namespace client
             c1 = new ClientConnect();
             tcpThd = new Thread(new ThreadStart(NewClientConnected));// יצירת תהליך שפועל ברקע   
             tcpThd.Start();
+            finished = false;
         }
         public void NewClientConnected()
         {
@@ -46,14 +58,14 @@ namespace client
                     c1 = new ClientConnect();
                     c1.clientSocket = s;
                     c1.clientThread = new Thread(new ThreadStart(ReadSocket)); //שומרת את הטרד 
-                    int ret = 0;
-                    Byte[] receive = new Byte[15];// ברשת נתונים עוברים רק בביטים
-                    ret = s.Receive(receive, receive.Length, 0);// מחזיק את הכמות הבייטים שיתקבלו
-                    strmess = System.Text.Encoding.UTF8.GetString(receive);// שורה זו ממירה את המערך שהוא מטיפוס בייט למחרוזת שאותה הוא שומר ב strmess
-                    c1.name = strmess.Substring(0, ret);// שורה זו מחלצת את מה שכתוב עד לרווח הראשון
+                    //int ret = 0;
+                    //Byte[] receive = new Byte[15];// ברשת נתונים עוברים רק בביטים
+                    //ret = s.Receive(receive, receive.Length, 0);// מחזיק את הכמות הבייטים שיתקבלו
+                    //strmess = System.Text.Encoding.UTF8.GetString(receive);// שורה זו ממירה את המערך שהוא מטיפוס בייט למחרוזת שאותה הוא שומר ב strmess
+                    //c1.name = strmess.Substring(0, ret);// שורה זו מחלצת את מה שכתוב עד לרווח הראשון
 
-                    Interlocked.Increment(ref connectId);
-                    c1.clientnum = connectId;
+                    //Interlocked.Increment(ref connectId);
+                    c1.clientnum = 1;
                     
                     lock (this)
                     {
@@ -81,27 +93,14 @@ namespace client
             long realId = c1.clientnum; // The realId saves the real number of the client that sends the info
             Socket s = c1.clientSocket;
             int ret = 0; // This object will contain the number of characters that are passed in the message
-            Byte[] receive; // In this array I'll save the info from the client
-            receive = new Byte[2000]; // If the client is connected we reboot the array;
+            //com.setReceiveFromIp(s.RemoteEndPoint);
             while (true) // מנהל המשחק: כרגע מקבלת ממל מי כול לקוח ומוסרת אותו לכול הלקוחות
             {
                 try
                 {
                     if (s.Connected)
                     {
-                        ret = s.Receive(receive, receive.Length, 0);//s.Receive is a command that gets the info from the client and put it in the array receive
-                        if (ret > 0) // If a message is rececived
-                        {
-                            foreach (ClientConnect c in allClients)
-                            {
-                                if (c.clientSocket.Connected)
-                                    c.clientSocket.Send(receive, receive.Length, SocketFlags.None);
-                            }
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        getMsgFromCliChain(s);
                     }// If a message was received and its' characters length is 0 we get out of the loop
                 }
                 catch (Exception e) // If an error occured we want to stop the thread
@@ -144,31 +143,59 @@ namespace client
         }
         private Block ParseBlock(string info)
         {
-           
-            Block block = new Block(info.Split("@")[0], info.Split("@")[3]);
+            User us = new User();
+            us.id = int.Parse(info.Substring(6, 9));
+            us.name = info.Substring(16,info.IndexOf("@", 17)-16);
+            us.vote = int.Parse(info.Substring(info.IndexOf("@", 17)+1, 1));
+
+            Block block = new Block(info, us);
+            //Block block = new Block(info.Split("@".ToCharArray()[0])[0],User(123,"a") );
             block.set_magic_num(int.Parse(info.Substring(0,5)));
             return block;
         }
 
-        public static void getMsgFromCliChain(Socket s)
+        public void getMsgFromCliChain(Socket s)
         {
             int type = comHelper.recvmsgType(s);
             int len = comHelper.recvmsglength(s);
             byte[] msg = new byte[len];
-            int size;
-            switch (type)
+            //int size;
+            switch (type-48)
             {
                 case (int)msgCodes.CLOSE_MSG:
 
                     break;
                 case (int)msgCodes.INFO_BLOCK://parsing into block class
-                    
+                    Block b = ParseBlock(comHelper.recvStringTypeMsg(s, len));
+                   if(b.verifyMagic_num(b.get_magic_num()) && b.verify_block())
+                    {
+                        if (Global.FuncClient.sendBlock(b))
+                        {
+                            lock(this)
+                            {
+                                finished = true;
+                            }
+                        }
+                        else
+                        {
+                            Global.blkchn.addBlock(b);
+                        }
+                        
+
+
+                    }
+                   else
+                    {
+
+                        Global.FuncClient.SendMsgToSrvr();//
+                    }
                     break;
                 case (int)msgCodes.VERIFIED:
                     break;
                 case (int)msgCodes.NOT_VERIFIED:
                     break;
                 case (int)msgCodes.CONNECTED:
+                    MessageBox.Show("connected p2p");
                     //size = Listen_sock.Receive(msg, 0, len, SocketFlags.None);
                     //recievefromIp = msg.ToString();
                     break;

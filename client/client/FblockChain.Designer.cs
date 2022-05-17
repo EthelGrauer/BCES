@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FblockChain));
             this.lbl1 = new System.Windows.Forms.Label();
             this.lblipcur = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
             this.lblipsend = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbln1 = new System.Windows.Forms.Label();
+            this.lbln3 = new System.Windows.Forms.Label();
+            this.lbln2 = new System.Windows.Forms.Label();
+            this.lblm1 = new System.Windows.Forms.Label();
+            this.lblm3 = new System.Windows.Forms.Label();
+            this.lblm2 = new System.Windows.Forms.Label();
+            this.lblv3 = new System.Windows.Forms.Label();
+            this.lblv2 = new System.Windows.Forms.Label();
+            this.lblv1 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -80,17 +80,17 @@
             this.lblipcur.Name = "lblipcur";
             this.lblipcur.Size = new System.Drawing.Size(170, 52);
             this.lblipcur.TabIndex = 4;
-            this.lblipcur.Text = "CURRENT IP:  127.0.0.1 PORT:10001";
+            this.lblipcur.Text = "CURRENT IP:  ";
             // 
-            // label1
+            // lbl2
             // 
-            this.label1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label1.ForeColor = System.Drawing.Color.Aquamarine;
-            this.label1.Location = new System.Drawing.Point(49, 290);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 52);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "LISTEN IP: 127.0.0.1 PORT:10003";
+            this.lbl2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lbl2.ForeColor = System.Drawing.Color.Aquamarine;
+            this.lbl2.Location = new System.Drawing.Point(49, 290);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(170, 52);
+            this.lbl2.TabIndex = 5;
+            this.lbl2.Text = "LISTEN IP: ";
             // 
             // lblipsend
             // 
@@ -100,97 +100,97 @@
             this.lblipsend.Name = "lblipsend";
             this.lblipsend.Size = new System.Drawing.Size(170, 52);
             this.lblipsend.TabIndex = 6;
-            this.lblipsend.Text = "SEND IP: 127.0.0.1 PORT:10002";
+            this.lblipsend.Text = "SEND IP: ";
             // 
-            // label2
+            // lbln1
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label2.Location = new System.Drawing.Point(578, 385);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "name: Michael Grauer";
+            this.lbln1.AutoSize = true;
+            this.lbln1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbln1.Location = new System.Drawing.Point(578, 385);
+            this.lbln1.Name = "lbln1";
+            this.lbln1.Size = new System.Drawing.Size(39, 13);
+            this.lbln1.TabIndex = 10;
+            this.lbln1.Text = "name: ";
             // 
-            // label3
+            // lbln3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label3.Location = new System.Drawing.Point(84, 386);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "name: Ethel Grauer";
+            this.lbln3.AutoSize = true;
+            this.lbln3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbln3.Location = new System.Drawing.Point(84, 386);
+            this.lbln3.Name = "lbln3";
+            this.lbln3.Size = new System.Drawing.Size(39, 13);
+            this.lbln3.TabIndex = 11;
+            this.lbln3.Text = "name: ";
             // 
-            // label4
+            // lbln2
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label4.Location = new System.Drawing.Point(331, 386);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "name: Sandra Grauer";
+            this.lbln2.AutoSize = true;
+            this.lbln2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbln2.Location = new System.Drawing.Point(331, 386);
+            this.lbln2.Name = "lbln2";
+            this.lbln2.Size = new System.Drawing.Size(39, 13);
+            this.lbln2.TabIndex = 12;
+            this.lbln2.Text = "name: ";
             // 
-            // label5
+            // lblm1
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label5.Location = new System.Drawing.Point(588, 479);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "magic num: 38772";
+            this.lblm1.AutoSize = true;
+            this.lblm1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblm1.Location = new System.Drawing.Point(588, 479);
+            this.lblm1.Name = "lblm1";
+            this.lblm1.Size = new System.Drawing.Size(64, 13);
+            this.lblm1.TabIndex = 13;
+            this.lblm1.Text = "magic num: ";
             // 
-            // label6
+            // lblm3
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label6.Location = new System.Drawing.Point(88, 480);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "magic num: 74646";
+            this.lblm3.AutoSize = true;
+            this.lblm3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblm3.Location = new System.Drawing.Point(88, 480);
+            this.lblm3.Name = "lblm3";
+            this.lblm3.Size = new System.Drawing.Size(64, 13);
+            this.lblm3.TabIndex = 14;
+            this.lblm3.Text = "magic num: ";
             // 
-            // label7
+            // lblm2
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label7.Location = new System.Drawing.Point(343, 480);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "magic num: 15786";
+            this.lblm2.AutoSize = true;
+            this.lblm2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblm2.Location = new System.Drawing.Point(343, 480);
+            this.lblm2.Name = "lblm2";
+            this.lblm2.Size = new System.Drawing.Size(64, 13);
+            this.lblm2.TabIndex = 15;
+            this.lblm2.Text = "magic num: ";
             // 
-            // label8
+            // lblv3
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label8.Location = new System.Drawing.Point(100, 443);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "vote: Yamina";
+            this.lblv3.AutoSize = true;
+            this.lblv3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblv3.Location = new System.Drawing.Point(100, 443);
+            this.lblv3.Name = "lblv3";
+            this.lblv3.Size = new System.Drawing.Size(34, 13);
+            this.lblv3.TabIndex = 16;
+            this.lblv3.Text = "vote: ";
             // 
-            // label9
+            // lblv2
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label9.Location = new System.Drawing.Point(342, 443);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "vote: IsraelBeitenu";
+            this.lblv2.AutoSize = true;
+            this.lblv2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblv2.Location = new System.Drawing.Point(342, 443);
+            this.lblv2.Name = "lblv2";
+            this.lblv2.Size = new System.Drawing.Size(34, 13);
+            this.lblv2.TabIndex = 17;
+            this.lblv2.Text = "vote: ";
             // 
-            // label10
+            // lblv1
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label10.Location = new System.Drawing.Point(601, 443);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 13);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "vote: Halikud";
+            this.lblv1.AutoSize = true;
+            this.lblv1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblv1.Location = new System.Drawing.Point(601, 443);
+            this.lblv1.Name = "lblv1";
+            this.lblv1.Size = new System.Drawing.Size(34, 13);
+            this.lblv1.TabIndex = 18;
+            this.lblv1.Text = "vote: ";
             // 
             // pictureBox8
             // 
@@ -285,20 +285,20 @@
             this.ClientSize = new System.Drawing.Size(800, 526);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblv1);
+            this.Controls.Add(this.lblv2);
+            this.Controls.Add(this.lblv3);
+            this.Controls.Add(this.lblm2);
+            this.Controls.Add(this.lblm3);
+            this.Controls.Add(this.lblm1);
+            this.Controls.Add(this.lbln2);
+            this.Controls.Add(this.lbln3);
+            this.Controls.Add(this.lbln1);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.lblipsend);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lblipcur);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -326,20 +326,20 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblipcur;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Label lblipsend;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbln1;
+        private System.Windows.Forms.Label lbln3;
+        private System.Windows.Forms.Label lbln2;
+        private System.Windows.Forms.Label lblm1;
+        private System.Windows.Forms.Label lblm3;
+        private System.Windows.Forms.Label lblm2;
+        private System.Windows.Forms.Label lblv3;
+        private System.Windows.Forms.Label lblv2;
+        private System.Windows.Forms.Label lblv1;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
     }

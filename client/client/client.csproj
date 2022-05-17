@@ -52,6 +52,7 @@
     <Compile Include="ClientConnect.cs" />
     <Compile Include="comHelper.cs" />
     <Compile Include="comInfo.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="NetworkFuncClient.cs" />
     <Compile Include="NetworkFuncServer.cs" />
     <Compile Include="Parties.cs" />

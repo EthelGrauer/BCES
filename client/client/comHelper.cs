@@ -68,7 +68,8 @@ namespace client
             int num = sock.Receive(msg, 0, len, SocketFlags.None);
             //if (BitConverter.IsLittleEndian)
             //    Array.Reverse(msgLength);
-            return msg.ToString();
+            
+            return Encoding.ASCII.GetString(msg);
         }
         private static string addZero(int num)
         {

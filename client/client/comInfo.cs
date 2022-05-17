@@ -9,13 +9,13 @@ namespace client
     public enum msgCodes
     {
         //msgs between clients
-        CLOSE_MSG = 11,
+        CLOSE_MSG = 1,
         INFO_BLOCK,
         CONNECTED,
         VERIFIED,
         NOT_VERIFIED
     }
-    class comInfo
+    public class comInfo
     {
         private string sendtoIp;
         private string recievefromIp;
@@ -30,6 +30,7 @@ namespace client
             recievefromIp = this.IpAddress;
             portsendto = 0;
             portlisten = 0;
+            this.IpAddress = comHelper.GetIpAdDress();
             
         }
         public comInfo(comInfo info)

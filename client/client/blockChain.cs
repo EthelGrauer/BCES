@@ -9,7 +9,10 @@ namespace client
     public class blockChain
     {
         private LinkedList<Block> genesis;
+        public blockChain()
+        {
 
+        }
         public blockChain(Block block)
         {
             genesis.AddFirst(block);
@@ -18,9 +21,23 @@ namespace client
         {
             return genesis.Last.Value.getHash();
         }
+        public bool isEmpty()
+        {
+            if (genesis==null)
+            {
+                return true;
+            }
+            return false;
+        }
         public void addBlock(Block block)
         {
-            genesis.AddLast(block);
+            if (isEmpty())
+            {
+                genesis = new LinkedList<Block>();
+                genesis.AddFirst(block);
+            }  
+            else
+                genesis.AddLast(block);
 
 
         }
@@ -30,11 +47,16 @@ namespace client
         }
         public Block PrevtoLast()
         {
-            return genesis.Last.Previous.Value;
+            if (genesis.Count>1)
+                 return genesis.Last.Previous.Value;
+            return null;
         }
         public Block twoBeforeEnd()
         {
-            return genesis.Last.Previous.Previous.Value;
+            
+            if (genesis.Count > 2)
+                return genesis.Last.Previous.Previous.Value;
+            return null;
         }
     }
 }

@@ -13,16 +13,31 @@ using System.Net;
 
 namespace client
 {
-    class NetworkFuncClient//all the functions as a block chain client 
+    public class NetworkFuncClient//all the functions as a block chain client 
     {
         Socket Send_to_sock;
         comInfo com;
+        public List<int> magic_num;
         public NetworkFuncClient(comInfo cominfo)
         {
             com = cominfo;
             Send_to_sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            magic_num = new List<int>();
             //Send_to_sock.Connect(sendtoIp, portsendto);
-            Send_to_sock.Connect(IPAddress.Loopback, com.getSendToPort());
+            bool flag = false;
+            do
+            {
+                try
+                {
+                    Send_to_sock.Connect(IPAddress.Loopback, com.getSendToPort());
+                    flag = true;
+                }
+                catch { }
+            } while (!flag);
+            
+                
+
+            comHelper.sendMsg(Send_to_sock, comHelper.constructMsg((int)msgCodes.CONNECTED, ""));
         }
         public void getMsgFromSrvrChain()
         {
@@ -48,9 +63,19 @@ namespace client
         {
 
         }
-        public void sendBlock(client.Block block)
+        public bool sendBlock(client.Block block)
         {
-            comHelper.sendMsg(Send_to_sock, comHelper.constructMsg((int)msgCodes.INFO_BLOCK, block.tostring()));
+            if (magic_num.Contains(block.get_magic_num()))
+            {
+                magic_num.Remove(block.get_magic_num());
+                return true;
+            }
+                
+   
+
+                magic_num.Add(block.get_magic_num());
+                comHelper.sendMsg(Send_to_sock, comHelper.constructMsg((int)msgCodes.INFO_BLOCK, block.tostring()));
+            return false;
         }
 
     }

@@ -18,8 +18,9 @@ namespace client
             Party_ins party_Ins = new Party_ins(party);
             lblInfo.Text = party_Ins.info;
             lblName.Text= lblName.Text +party_Ins.name;
-            linkLabel.Text = party_Ins.link;
-            
+           linkLabel.Text = party_Ins.link;
+           // linkLabel. party_Ins.link; 
+
         }
     }
 }
